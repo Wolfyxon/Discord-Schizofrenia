@@ -2,16 +2,20 @@
 
 use std::{thread, time::Duration};
 
+use rand::Rng;
 use soloud::{audio, AudioExt, LoadExt, Soloud};
 
 fn main() {
     let sl = Soloud::default().unwrap();
     let mut wav = audio::Wav::default();
+    let mut rng = rand::thread_rng();
 
     wav.load_mem(include_bytes!("./ping.ogg")).unwrap();
     
     loop {
-        thread::sleep(Duration::from_secs_f32(2.0));
+        let delay: f32 = rng.gen_range(60.0..(60.0 * 60.0));
+
+        thread::sleep(Duration::from_secs_f32(delay));
         sl.play(&wav);
     };
 }
