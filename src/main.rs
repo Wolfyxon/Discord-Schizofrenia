@@ -6,7 +6,6 @@ use rand::Rng;
 use soloud::{audio, AudioExt, LoadExt, Soloud};
 
 fn main() {
-    let sl = Soloud::default().unwrap();
     let mut wav = audio::Wav::default();
     let mut rng = rand::thread_rng();
 
@@ -16,6 +15,10 @@ fn main() {
         let delay: f32 = rng.gen_range(60.0..(60.0 * 60.0));
 
         thread::sleep(Duration::from_secs_f32(delay));
+        
+        let sl = Soloud::default().unwrap();
         sl.play(&wav);
+        
+        thread::sleep(Duration::from_secs_f64(wav.length()));
     };
 }
