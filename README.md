@@ -1,2 +1,2 @@
-# Discord Schizofrenia
+# Discord Schizophrenia
 I'm sorry
