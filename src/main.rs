@@ -14,8 +14,12 @@ fn main() {
     loop {
         let delay: f32 = rng.gen_range(60.0..(60.0 * 60.0));
 
+        println!("Waiting {}s", delay);
+
         thread::sleep(Duration::from_secs_f32(delay));
         
+        println!("Playing");
+
         let sl = Soloud::default().unwrap();
         sl.play(&wav);
         
