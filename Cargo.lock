@@ -39,7 +39,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "discord-schizofrenia"
+name = "discord-schizophrenia"
 version = "0.1.0"
 dependencies = [
  "rand",
